@@ -12,7 +12,8 @@ using std::vector;
 using std::string;
 
 /** Description:
-Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+Given two integers n and k, return all possible combinations of k numbers out of
+1 ... n.
 
 You may return the answer in any order.
 
@@ -30,39 +31,37 @@ Output:
 ]
 */
 
-void dfs(int n, int k, int step,
-         vector<int> &status, vector<vector<int>> &res) {
-  if (status.size() == k) {
-    res.push_back(status);
-    return;
-  }
-  for (int i = step; i <= n; i++) {
-    status.push_back(i);
-    dfs(n, k, i + 1, status, res);
-    status.pop_back();
-  }
+void dfs(
+    int n, size_t k, int step, vector<int> &status, vector<vector<int>> &res) {
+    if (status.size() == k) {
+        res.push_back(status);
+        return;
+    }
+    for (int i = step; i <= n; i++) {
+        status.push_back(i);
+        dfs(n, k, i + 1, status, res);
+        status.pop_back();
+    }
 }
 
 vector<vector<int>> combine(int n, int k) {
+    vector<int> status;
+    vector<vector<int>> res;
 
-  vector<int> status;
-  vector<vector<int>> res;
+    dfs(n, k, 1, status, res);
 
-  dfs(n, k, 1, status, res);
-
-  return res;
+    return res;
 }
 
 int main(int argc, char **argv) {
+    auto res = combine(4, 2);
 
-  auto res = combine(4, 2);
-
-  for (int i = 0; i < res.size(); i++) {
-    printf("%d set\n", i);
-    for (auto x : res[i]) {
-      std::cout << x << ", ";
+    for (unsigned int i = 0; i < res.size(); i++) {
+        printf("%u set\n", i);
+        for (auto x : res[i]) {
+            std::cout << x << ", ";
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
-  }
-  return 0;
+    return 0;
 }

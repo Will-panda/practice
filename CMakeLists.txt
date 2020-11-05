@@ -16,7 +16,6 @@ message(STATUS "Eigen dir: ${EIGEN_INCLUDE_DIR}")
 message(STATUS "camke moudle path: ${CMAKE_MODULE_PATH}")
 
 
-add_compile_options(-std=c++11)
-add_executable(test_sample get_env.cpp)
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/cpp_practice)
 add_subdirectory(${PROJECT_SOURCE_DIR}/leetcode)
