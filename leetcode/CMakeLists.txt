@@ -1,4 +1,3 @@
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-
-add_executable(letter_comb src/letter_comb.cpp)
+add_subdirectory(src/search/letter_combination_of_phone_number)
+add_subdirectory(src/search/permutations)
