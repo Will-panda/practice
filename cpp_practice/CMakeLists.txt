@@ -1,2 +1,2 @@
 
-add_executable(test_sample get_env.cpp)
+add_executable(ops operator_study.cpp)
